@@ -366,7 +366,7 @@ body::before {
       transparent 70%
     );
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   animation: backdropFloat 25s ease-in-out infinite alternate;
 }
 @keyframes backdropFloat {
@@ -396,7 +396,7 @@ body::before {
 #spotlight {
   position: fixed;
   pointer-events: none;
-  z-index: 3;
+  z-index: 1;
   width: 500px;
   height: 500px;
   border-radius: 50%;
@@ -1997,6 +1997,15 @@ section {
   box-shadow: 0 14px 48px rgba(0, 0, 0, 0.22);
   transform-style: preserve-3d;
   perspective: 800px;
+  isolation: isolate;
+}
+.project-card > * {
+  position: relative;
+  z-index: 1;
+}
+.project-card::before,
+.project-card::after {
+  z-index: 0;
 }
 .project-card:hover {
   border-color: rgba(212, 175, 55, 0.25);
